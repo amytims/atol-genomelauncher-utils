@@ -17,10 +17,10 @@ unset SBATCH_EXPORT
 set -eux
 
 # sample to run - organism grouping key
-SAMPLE_ID="MelanotaeniaRR"
+SAMPLE_ID="GadopsisMarmoratus135755"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="RR_rainbow"
+SOURCE_DIRNAME="g_marmoratus" # match GENUS_SPECIES in setup
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
