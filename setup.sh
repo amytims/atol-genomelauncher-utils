@@ -21,3 +21,5 @@ ln -s /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/nextflow_logs /
 
 # pull in the script to run 
 wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/launcher.sh -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/launcher.sh
+
+wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/sangertol-nf.config -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/sangertol-nf.config
