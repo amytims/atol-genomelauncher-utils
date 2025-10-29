@@ -85,7 +85,7 @@ nextflow \
         --pacbio_reads ./results/processed_reads/hifi \
         --hic_reads ./results/processed_reads/hic \
         --outdir s3://pawsey1132.afgi.assemblies/${SAMPLE_ID}/results \
-        --sample_id ${SAMPLE_ID} -resume
+        --sample_id ${SAMPLE_ID} -r v0.1 -resume
 exit 0
 
 # check sangertol assembly pipeline before running

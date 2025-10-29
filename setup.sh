@@ -3,11 +3,14 @@
 # Who am I assembling?
 GENUS_SPECIES=""
 
+# where's its script on github?
+BRANCH=""
+
 # make directory to put assembly scripts in
-mkdir /home/atims/afgi_assemblies/${GENUS_SPECIES}
+mkdir /home/atims/afgi_assemblies/${GENUS_SPECIES} -p
 
 # create scratch directories
-mkdir /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/results
+mkdir /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/results -p
 mkdir /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/work
 mkdir /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/nextflow_logs
 
@@ -17,4 +20,4 @@ ln -s /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/work /home/atim
 ln -s /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/nextflow_logs /home/atims/afgi_assemblies/${GENUS_SPECIES}/nextflow_logs
 
 # pull in the script to run 
-wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils /scratch/pawsey1132/atims/afgi_assemblies/${GENUS_SPECIES}/launcher.sh
+wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/launcher.sh -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/launcher.sh
