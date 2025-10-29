@@ -34,7 +34,7 @@ PIPELINE_PARAMS=(
         "--hifiasm_hic_on"
         "-profile" "singularity,pawsey"
         "-r" "${PIPELINE_VERSION}"
-        "-c" "sangertol_nf.config"
+        "-c" "sangertol-nf.config"
 )
 
 # where to put singularity files
@@ -75,6 +75,8 @@ nextflow \
         run amytims/atol-qc-raw-pacbio \
         --plot_title "Running River Rainbowfish - Read Length Distribution" \
         -profile pawsey -resume
+
+exit 0
 
 # run read concatenation and config creation
 nextflow \
