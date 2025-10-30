@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name=atol-launcher-test
+#SBATCH --job-name=atol-launcher-c_micropterus
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
@@ -17,10 +17,10 @@ unset SBATCH_EXPORT
 set -eux
 
 # sample to run - organism grouping key
-SAMPLE_ID="MelanotaeniaRR"
+SAMPLE_ID="ChlamydogobiusMicropterus1527627"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="RR_rainbow"
+SOURCE_DIRNAME="c_micropterus"
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
