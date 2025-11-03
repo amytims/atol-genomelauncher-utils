@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name=<Genus_species>-short-read_qc
+#SBATCH --job-name=<Genus_species>-ont_qc
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
