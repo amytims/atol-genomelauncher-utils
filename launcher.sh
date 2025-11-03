@@ -74,7 +74,13 @@ nextflow \
         -log "nextflow_logs/nextflow_run_atol-qc-raw-pacbio.$(date +"%Y%m%d%H%M%S").${RANDOM}.log" \
         run amytims/atol-qc-raw-pacbio \
         --plot_title "Running River Rainbowfish - Read Length Distribution" \
-        -profile pawsey -resume
+        -profile pawsey -resume &
+
+# run hi-c qc
+sbatch short-read-qc.sh &
+
+# run ont qc
+sbatch ont-qc.sh
 
 exit 0
 
