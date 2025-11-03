@@ -64,11 +64,14 @@ nextflow \
         -profile pawsey \
         --sample_id ${SAMPLE_ID} \
         --use_samplesheet \
-        --samplesheet ~/atol-data-mover_samplesheet_251023.csv \
+        --samplesheet ~/atol-data-mover_samplesheet_251103.csv \
         --pacbio_data \
         --hic_data \
         --ont_data \
-        --bpa_api_token ${BPA_API_TOKEN}
+        --bpa_api_token ${BPA_API_TOKEN} \
+        -r v0.1.1
+
+exit 0
 
 # run pacbio QC pipeline
 nextflow \
