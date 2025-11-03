@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ### pulling relevant outputs back from Acacia
+module load rclone/1.68.1
 
 #Who did we assemble?
 SAMPLE_ID="MacquariaWujalwujalensis2976176"
