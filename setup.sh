@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Who am I assembling?
-GENUS_SPECIES=""
+GENUS_SPECIES="p_obbesi"
 
 # where's its script on github?
-BRANCH=""
+BRANCH="p_obbesi"
 
 # make directory to put assembly scripts in
 mkdir /home/atims/afgi_assemblies/${GENUS_SPECIES} -p

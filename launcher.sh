@@ -17,10 +17,10 @@ unset SBATCH_EXPORT
 set -eux
 
 # sample to run - organism grouping key
-SAMPLE_ID="MelanotaeniaRR"
+SAMPLE_ID="PorochilusObbesi2850005"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="RR_rainbow"
+SOURCE_DIRNAME="p_obbesi"
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
@@ -30,12 +30,12 @@ RESULT_VERSION="v1"
 PIPELINE_PARAMS=(
         "--input" "results/config/config_file.yaml"
         "--outdir" "s3://pawsey1132.afgi.assemblies/${RESULT_DIRNAME}/results/sanger_tol"
-        "--timestamp" "${RESULT_VERSION}"
-        "--hifiasm_hic_on"
+        "--timestamp" "${RESULT_VERSION}"        
         "-profile" "singularity,pawsey"
         "-r" "${PIPELINE_VERSION}"
         "-c" "sangertol-nf.config"
 )
+# run without "--hifiasm_hic_on" for now and see how it goes
 
 # where to put singularity files
 if [ -z "${SINGULARITY_CACHEDIR}" ]; then
@@ -67,6 +67,7 @@ nextflow \
         --samplesheet ~/atol-data-mover_samplesheet_251023.csv \
         --pacbio_data \
         --hic_data \
+        --ont_data \
         --bpa_api_token ${BPA_API_TOKEN}
 
 # run pacbio QC pipeline

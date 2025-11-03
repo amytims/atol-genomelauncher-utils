@@ -23,7 +23,7 @@ export NXF_SINGULARITY_CACHEDIR="${SINGULARITY_CACHEDIR}/library"
 singularity exec \
     /software/projects/pawsey1132/atims/.singularity/library/atol-qc-raw-ont_0.1.3--pyhdfd78af_0.sif \
     atol-qc-raw-ont \
-        --tarfile results/raw_reads/ont/reads_in_directory.tar \
+        --tarfile results/raw_reads/ont/616898_FISH_BRF_PBG55693_ONTPromethION_fastq_pass.tar \
 		--out results/processed_reads/ont/ont_reads.fastq.gz \
 		--stats results/qc/ont_stats.json \
 		--logs results/ont_logs \
