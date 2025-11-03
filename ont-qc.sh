@@ -26,5 +26,5 @@ singularity exec \
         --tarfile results/raw_reads/ont/reads_in_directory.tar \
 		--out results/processed_reads/ont/ont_reads.fastq.gz \
 		--stats results/qc/ont_stats.json \
-		--logs results/ont_logs \
+		--logs results/qc/ont_logs \
 		--min-length 1000
