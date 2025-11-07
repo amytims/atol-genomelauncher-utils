@@ -28,7 +28,7 @@ RESULT_DIRNAME=${SAMPLE_ID} # dataset_id for DToL pipeline - do not include unde
 RESULT_VERSION="v1"
 
 PIPELINE_PARAMS=(
-        "--input" "results/config/config_file.yaml"
+        "--input" "config/config_file.yaml"
         "--outdir" "s3://pawsey1132.afgi.assemblies/${RESULT_DIRNAME}/results/sanger_tol"
         "--timestamp" "${RESULT_VERSION}"
         "--hifiasm_hic_on"
