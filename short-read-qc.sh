@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name=<Genus_species>-short-read_qc
+#SBATCH --job-name=Melanotaenia_RR-short-read_qc
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
@@ -23,10 +23,10 @@ export NXF_SINGULARITY_CACHEDIR="${SINGULARITY_CACHEDIR}/library"
 singularity exec \
 /software/projects/pawsey1132/atims/.singularity/library/atol-qc-raw-shortread_0.1.7--pyhdfd78af_0.sif \
 atol-qc-raw-shortread \
-    --in results/raw_reads/hic/616643_FISH_BRF_232K7NLT3_ATGTCAAG-TAGAGCTC_S10_R1_001.fastq.gz \
-    --in2 results/raw_reads/hic/616643_FISH_BRF_232K7NLT3_ATGTCAAG-TAGAGCTC_S10_R2_001.fastq.gz \
+    --in results/raw_reads/hic/616642_FISH_BRF_232K7NLT3_AGTCGCGA-TAGACCAA_S3_R1_001.fastq.gz \
+    --in2 results/raw_reads/hic/616642_FISH_BRF_232K7NLT3_AGTCGCGA-TAGACCAA_S3_R2_001.fastq.gz \
     --adaptors /usr/local/opt/bbmap-38.95-1/resources/adapters.fa \
-    --out results/processed_reads/hic/616643_FISH_BRF_232K7NLT3_ATGTCAAG-TAGAGCTC_S10_R1_001.fastq.gz \
-    --out2 results/processed_reads/hic/616643_FISH_BRF_232K7NLT3_ATGTCAAG-TAGAGCTC_S10_R2_001.fastq.gz \
+    --out results/processed_reads/hic/616642_FISH_BRF_232K7NLT3_AGTCGCGA-TAGACCAA_S3_R1_001.trim.fastq.gz\
+    --out2 results/processed_reads/hic/616642_FISH_BRF_232K7NLT3_AGTCGCGA-TAGACCAA_S3_R2_001.trim.fastq.gz\
     --stats results/qc/hic_stats.json \
     --threads 14 --logs results/qc/hic_logs

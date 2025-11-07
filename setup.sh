@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Who am I assembling?
-GENUS_SPECIES=""
+GENUS_SPECIES="m_RR"
 
 # where's its script on github?
-BRANCH=""
+BRANCH="m_RR"
 
 # make directory to put assembly scripts in
 mkdir /home/atims/afgi_assemblies/${GENUS_SPECIES} -p
@@ -28,7 +28,7 @@ wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/he
 wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/short-read-qc.sh -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/short-read-qc.sh
 
 # pull in ONT qc script to run (comment out if not needed)
-wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/ont-qc.sh -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/ont-qc.sh
+#wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/ont-qc.sh -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/ont-qc.sh
 
 # pull in the sangertol config file
 wget https://raw.githubusercontent.com/amytims/atol-genomelauncher-utils/refs/heads/${BRANCH}/sangertol-nf.config -O /home/atims/afgi_assemblies/${GENUS_SPECIES}/sangertol-nf.config

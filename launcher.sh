@@ -20,7 +20,7 @@ set -eux
 SAMPLE_ID="MelanotaeniaRR"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="RR_rainbow"
+SOURCE_DIRNAME="m_RR"
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
@@ -64,7 +64,7 @@ nextflow \
         -profile pawsey \
         --sample_id ${SAMPLE_ID} \
         --use_samplesheet \
-        --samplesheet ~/atol-data-mover_samplesheet_251023.csv \
+        --samplesheet ~/atol-data-mover_samplesheet_251103.csv \
         --pacbio_data \
         --hic_data \
         --bpa_api_token ${BPA_API_TOKEN}
