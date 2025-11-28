@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=14
-#SBATCH --mem=25G
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=200G
 #SBATCH --time=23:59:00
 #SBATCH --account=pawsey1132
 #SBATCH --partition=work
