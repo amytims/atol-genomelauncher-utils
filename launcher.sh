@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --job-name=atol-launcher-test
+#SBATCH --job-name=atol-launcher-a_agassizii
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
@@ -17,10 +17,10 @@ unset SBATCH_EXPORT
 set -eux
 
 # sample to run - organism grouping key
-SAMPLE_ID="MelanotaeniaRR"
+SAMPLE_ID="AmbassisAgassizii613159"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="RR_rainbow"
+SOURCE_DIRNAME="a_agassizii"
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
@@ -64,7 +64,7 @@ nextflow \
         -profile pawsey \
         --sample_id ${SAMPLE_ID} \
         --use_samplesheet \
-        --samplesheet ~/atol-data-mover_samplesheet_251023.csv \
+        --samplesheet ~/atol-data-mover_samplesheet_251103.csv \
         --pacbio_data \
         --hic_data \
         --bpa_api_token ${BPA_API_TOKEN}
@@ -73,15 +73,15 @@ nextflow \
 nextflow \
         -log "nextflow_logs/nextflow_run_atol-qc-raw-pacbio.$(date +"%Y%m%d%H%M%S").${RANDOM}.log" \
         run amytims/atol-qc-raw-pacbio \
-        --plot_title "Running River Rainbowfish - Read Length Distribution" \
+        --plot_title "Ambassis agassizii - PacBio Read Length Distribution" \
         -profile pawsey -resume &
 
 # run hi-c qc
 sbatch short-read-qc.sh &
 
 # run ont qc
-sbatch ont-qc.sh
-
+#sbatch ont-qc.sh
+wait 
 exit 0
 
 # run read concatenation and config creation

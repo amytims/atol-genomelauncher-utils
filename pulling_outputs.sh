@@ -3,7 +3,7 @@
 ### pulling relevant outputs back from Acacia
 
 #Who did we assemble?
-SAMPLE_ID="MelanotaeniaRR"
+SAMPLE_ID="AmbassisAgassizii613159"
 
 #Where did we put the results?
 BUCKET="pawsey1132:pawsey1132.afgi.assemblies/${SAMPLE_ID}/results/sanger_tol"
