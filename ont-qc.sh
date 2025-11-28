@@ -1,10 +1,10 @@
 #!/bin/bash -l
-#SBATCH --job-name=<Genus_species>-short-read_qc
+#SBATCH --job-name=p_obbesi_ont_qc
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=14
-#SBATCH --mem=25G
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=200G
 #SBATCH --time=23:59:00
 #SBATCH --account=pawsey1132
 #SBATCH --partition=work
@@ -26,5 +26,5 @@ singularity exec \
         --tarfile results/raw_reads/ont/616898_FISH_BRF_PBG55693_ONTPromethION_fastq_pass.tar \
 		--out results/processed_reads/ont/ont_reads.fastq.gz \
 		--stats results/qc/ont_stats.json \
-		--logs results/ont_logs \
+		--logs results/qc/ont_logs \
 		--min-length 1000

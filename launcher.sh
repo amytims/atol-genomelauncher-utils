@@ -28,9 +28,10 @@ RESULT_DIRNAME=${SAMPLE_ID} # dataset_id for DToL pipeline - do not include unde
 RESULT_VERSION="v1"
 
 PIPELINE_PARAMS=(
-        "--input" "results/config/config_file.yaml"
+        "--input" "config/config_file.yaml"
         "--outdir" "s3://pawsey1132.afgi.assemblies/${RESULT_DIRNAME}/results/sanger_tol"
-        "--timestamp" "${RESULT_VERSION}"        
+        "--timestamp" "${RESULT_VERSION}"
+        "--hifiasm_hic_on"        
         "-profile" "singularity,pawsey"
         "-r" "${PIPELINE_VERSION}"
         "-c" "sangertol-nf.config"
@@ -77,7 +78,7 @@ exit 0
 nextflow \
         -log "nextflow_logs/nextflow_run_atol-qc-raw-pacbio.$(date +"%Y%m%d%H%M%S").${RANDOM}.log" \
         run amytims/atol-qc-raw-pacbio \
-        --plot_title "Running River Rainbowfish - Read Length Distribution" \
+        --plot_title "Porochilus obbesi - PacBio Read Length Distribution" \
         -profile pawsey -resume &
 
 # run hi-c qc
