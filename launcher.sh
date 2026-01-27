@@ -17,14 +17,14 @@ unset SBATCH_EXPORT
 set -eux
 
 # sample to run - organism grouping key
-SAMPLE_ID="MelanotaeniaRR"
+SAMPLE_ID="taxid3240756"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="RR_rainbow"
+SOURCE_DIRNAME="p_halophilus"
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
-RESULT_DIRNAME=${SAMPLE_ID} # dataset_id for DToL pipeline - do not include underscores!
+RESULT_DIRNAME="PseudomugilHalophilus3240756" # dataset_id for DToL pipeline - do not include underscores!
 RESULT_VERSION="v1"
 
 PIPELINE_PARAMS=(
@@ -63,24 +63,23 @@ nextflow \
         run amytims/atol-bpa-download \
         -profile pawsey \
         --sample_id ${SAMPLE_ID} \
-        --use_samplesheet \
-        --samplesheet ~/atol-data-mover_samplesheet_251023.csv \
         --pacbio_data \
         --hic_data \
-        --bpa_api_token ${BPA_API_TOKEN}
+        --bpa_api_token ${CKAN_API_TOKEN}
+
+exit 0
 
 # run pacbio QC pipeline
 nextflow \
         -log "nextflow_logs/nextflow_run_atol-qc-raw-pacbio.$(date +"%Y%m%d%H%M%S").${RANDOM}.log" \
-        run amytims/atol-qc-raw-pacbio \
-        --plot_title "Running River Rainbowfish - Read Length Distribution" \
-        -profile pawsey -resume &
-
+        run amytims/atol-qc-raw-pacbio -r dev \
+        -profile pawsey 
+ exit 0
 # run hi-c qc
-sbatch short-read-qc.sh &
+sbatch short-read-qc.sh 
 
 # run ont qc
-sbatch ont-qc.sh
+# sbatch ont-qc.sh
 
 exit 0
 
@@ -92,7 +91,7 @@ nextflow \
         -profile pawsey \
         --pacbio_reads ./results/processed_reads/hifi \
         --hic_reads ./results/processed_reads/hic \
-        --outdir s3://pawsey1132.afgi.assemblies/${SAMPLE_ID}/results \
+        --outdir ./results/final_outputs \
         --sample_id ${SAMPLE_ID} -r v0.1 -resume
 exit 0
 
