@@ -20,7 +20,7 @@ set -eux
 SAMPLE_ID="taxid3240756"
 
 # where to put nextflow tmpfiles
-SOURCE_DIRNAME="p_halophilus"
+OUTPUT_DIRECTORY="p_halophilus"
 
 # params for DToL pipeline
 PIPELINE_VERSION="a6f7cb6"
@@ -51,8 +51,8 @@ export PATH="${PATH}:/software/projects/pawsey1132/atims/assembly_testing/bin"
 printf "nextflow: %s\n" "$( readlink -f $( which nextflow ) )"
 
 # set the NXF home for plugins etc
-export NXF_HOME="/scratch/pawsey1132/atims/afgi_assemblies/${SOURCE_DIRNAME}/.nextflow/"
-export NXF_CACHE_DIR="/scratch/pawsey1132/atims/afgi_assemblies/${SOURCE_DIRNAME}/.nextflow/"
+export NXF_HOME="/scratch/pawsey1132/atims/afgi_assemblies/${OUTPUT_DIRECTORY}/.nextflow/"
+export NXF_CACHE_DIR="/scratch/pawsey1132/atims/afgi_assemblies/${OUTPUT_DIRECTORY}/.nextflow/"
 export NXF_WORK="${PWD}/work"
 printf "NXF_HOME: %s\n" "${NXF_HOME}"
 printf "NXF_WORK: %s\n" "${NXF_WORK}"
@@ -62,6 +62,7 @@ nextflow \
         -log "nextflow_logs/nextflow_run_atol-bpa-download.$(date +"%Y%m%d%H%M%S").${RANDOM}.log" \
         run amytims/atol-bpa-download \
         -profile pawsey \
+        --jsonl /home/atims/data_mapper_output_260121 \
         --sample_id ${SAMPLE_ID} \
         --pacbio_data \
         --hic_data \
@@ -69,12 +70,13 @@ nextflow \
 
 exit 0
 
-# run pacbio QC pipeline
+# run pacbio QC pipeline - local output for now, but can try pushing to pawsey with --outdir s3://pawsey1132.afgi.assemblies/<SUBDIRECTORY>
 nextflow \
         -log "nextflow_logs/nextflow_run_atol-qc-raw-pacbio.$(date +"%Y%m%d%H%M%S").${RANDOM}.log" \
         run amytims/atol-qc-raw-pacbio -r dev \
         -profile pawsey 
  exit 0
+
 # run hi-c qc
 sbatch short-read-qc.sh 
 
